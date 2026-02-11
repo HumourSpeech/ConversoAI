@@ -3,7 +3,7 @@ import os
 import gradio as gr
 from gtts import gTTS
 
-import streamlit as st  # <- REMOVE THIS IF YOU DON’T NEED IT ANYWHERE ELSE
+import streamlit as st 
 
 from langchain_classic.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain_classic.chains.combine_documents import create_stuff_documents_chain
@@ -18,8 +18,6 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import PyPDFLoader
 from huggingface_hub import HfApi
 
-# ---------------- HF SECRETS SETUP ----------------
-# On Hugging Face Spaces, add these in Settings ➜ Repository secrets:
 #   HUGGING_FACE_API_KEY
 #   GROQ_API_KEY
 HF_TOKEN = os.environ.get("HUGGING_FACE_API_KEY")
@@ -30,9 +28,7 @@ if HF_TOKEN:
 
 embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
-# ------------------------------------------------------------------
 # GLOBAL STORE (replacement for st.session_state.store)
-# ------------------------------------------------------------------
 store = {}
 
 
@@ -42,10 +38,7 @@ def get_session_history(session: str) -> BaseChatMessageHistory:
         store[session] = ChatMessageHistory()
     return store[session]
 
-
-# ------------------------------------------------------------------
 # BUILD RAG PIPELINE ONCE API KEY + PDFS ARE PROVIDED
-# ------------------------------------------------------------------
 def setup_rag_pipeline(api_key, uploaded_files, session_id):
     """
     Creates the LLM, processes PDFs, builds vectorstore, retriever,
@@ -91,7 +84,7 @@ def setup_rag_pipeline(api_key, uploaded_files, session_id):
     vectorstore = Chroma.from_documents(documents=splits, embedding=embeddings)
     retriever = vectorstore.as_retriever()
 
-    # Contextualization prompt (same as your code)
+    # Contextualization prompt
     contextualize_q_system_prompt = (
         "Given a chat history and the latest user question"
         "which might reference context in the chat history, "
@@ -111,7 +104,7 @@ def setup_rag_pipeline(api_key, uploaded_files, session_id):
         llm, retriever, contextualize_q_prompt
     )
 
-    # QA prompt (same)
+    # QA prompt 
     system_prompt = (
         "You are an assistant for question-answering tasks. "
         "Use the following pieces of retrieved context to answer "
@@ -142,10 +135,7 @@ def setup_rag_pipeline(api_key, uploaded_files, session_id):
 
     return conversational_rag_chain, f"✅ RAG pipeline is ready for session `{session_id}`. Ask your questions below!"
 
-
-# ------------------------------------------------------------------
 # ANSWER QUESTIONS FUNCTION (USED BY GRADIO)
-# ------------------------------------------------------------------
 def answer_question(user_input, session_id, chain, chat_history_ui):
     """
     Uses the existing conversational_rag_chain to answer questions.
@@ -183,10 +173,7 @@ def answer_question(user_input, session_id, chain, chat_history_ui):
     ]
     return chat_history_ui
 
-
-# ------------------------------------------------------------------
 # GRADIO UI
-# ------------------------------------------------------------------
 custom_css = """
 #app-title {
     text-align: center;
