@@ -1,28 +1,45 @@
 
-# 📚 DocuChat — AI-Powered Conversational PDF Assistant (https://huggingface.co/spaces/humourSpeech6076/ConversoAI)
+# 📚 ConversoAI — AI-Powered Conversational PDF Assistant (https://huggingface.co/spaces/humourSpeech6076/ConversoAI)
 
-DocuChat is an intelligent RAG-based PDF assistant that allows users to **upload documents and interact with them like a chat**. Instead of scrolling through hundreds of pages, you can ask:
+ConversoAI is an intelligent RAG-based PDF assistant that allows users to **upload documents and interact with them like a chat**. Instead of scrolling through hundreds of pages, you can ask:
 
 > *"Explain chapter 2"*,
 > *"What are the key formulas?"*,
 > *"Summarize the conclusions"*,
 > *"What is the PDF talking about?"*
 
-…and DocuChat finds the answer instantly.
+…and ConversoAI finds the answer instantly.
 
 ---
 
 ## 🚀 Why This Project?
 
-As engineering students, we've all experienced the last-minute panic:
+As engineering students, we’ve all faced that all-too-familiar situation:
 
-📄 **200-page PDFs**
-⏳ **1 night before the exam**
-🥲 **Zero motivation to scroll through everything**
+📄 A 200-page PDF  
+⏳ One night before the exam  
+😵 Endless scrolling to find *that one important concept*  
 
-This frustration became the inspiration for **DocuChat** — a tool that lets anyone **study smarter, not harder**.
+The real issue isn’t effort — it’s inefficiency.  
+Key insights are buried in dense paragraphs. References lead to more references. Important definitions are scattered across pages. Under time pressure, extracting clarity becomes frustrating and overwhelming.
 
----
+That frustration led to the creation of **ConversoAI**.
+
+Instead of passively scrolling, what if you could **interact** with your study material?
+
+Imagine uploading a document and simply asking:
+
+- “Summarize this chapter.”
+- “Explain this concept in simple terms.”
+- “What are the key takeaways?”
+- “How does this compare to another topic?”
+
+**ConversoAI transforms static PDFs into interactive, context-aware conversations.**  
+It allows you to extract exactly what you need — quickly, accurately, and intelligently.
+
+Because studying shouldn’t be about scrolling harder.  
+It should be about understanding smarter.
+
 
 ## 🧠 Features
 
@@ -55,8 +72,8 @@ This frustration became the inspiration for **DocuChat** — a tool that lets an
 Clone the repo:
 
 ```bash
-git clone https://github.com/yourusername/DocuChat.git
-cd DocuChat
+git clone https://github.com/yourusername/ConversoAI.git
+cd ConversoAI
 ```
 
 Create a virtual environment:
@@ -99,7 +116,7 @@ Then open:
 
 ## 🧪 How to Use
 
-1. Enter your **Groq API key**
+1. Enter your **Groq API key(optional)**
 2. Upload one or more **PDFs**
 3. Click **Build Knowledge Base**
 4. Start chatting — ask questions like:
@@ -112,29 +129,29 @@ Give me a summary of chapter 5.
 
 ---
 
-## 📌 Future Enhancements
+## Future Enhancements
 
-* 🔊 Voice-based querying
-* 📱 Mobile UI
-* 🔗 Support more file formats (DOCX, PPT, Research papers)
-* 🧑‍🎓 Personalized study summaries + flashcards
+* Voice-based querying
+* Mobile UI
+* Support more file formats (DOCX, PPT, Research papers)
+* Personalized study summaries + flashcards
 
 ---
 
-## 🤝 Contribution
+## Contribution
 
 Pull requests are welcome!
 If you'd like to propose major changes, please open an issue first.
 
 ---
 
-## ❤️ Credits
+## Credits
 
 Built with love, curiosity, and desperation one night before exams 😄
 
 ---
 
-### ⭐ If DocuChat helped you study better — don’t forget to star the repo!
+### If ConversoAI helped you study better — don’t forget to star the repo!
 
 ---
 
