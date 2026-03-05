@@ -72,7 +72,7 @@ It should be about understanding smarter.
 Clone the repo:
 
 ```bash
-git clone https://github.com/yourusername/ConversoAI.git
+git clone https://github.com/HumourSpeech/ConversoAI.git
 cd ConversoAI
 ```
 
@@ -98,6 +98,7 @@ Create a `.env` file:
 
 ```
 HUGGING_FACE_API_KEY=your_hf_api_key
+GROQ_API_KEY=your_groq_api_key
 ```
 
 ---
@@ -105,7 +106,7 @@ HUGGING_FACE_API_KEY=your_hf_api_key
 ## ▶️ Run the App
 
 ```bash
-gradio app2.py
+gradio app.py
 ```
 
 Then open:
