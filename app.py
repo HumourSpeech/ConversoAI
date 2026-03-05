@@ -33,7 +33,7 @@ store = {}
 
 
 def get_session_history(session: str) -> BaseChatMessageHistory:
-    """Statefully manage chat history per session (same logic as Streamlit version)."""
+    """Statefully manage chat history per session."""
     if session not in store:
         store[session] = ChatMessageHistory()
     return store[session]
@@ -57,12 +57,12 @@ def setup_rag_pipeline(api_key, uploaded_files, session_id):
     # LLM
     llm = ChatGroq(groq_api_key=api_key, model_name="groq/compound")
 
-    # Process uploaded PDFs (Gradio-compatible)
+    # Process uploaded PDFs
     documents = []
     for uploaded_file in uploaded_files:
         # Gradio can return dicts, paths, or file-like objects depending on version
         if isinstance(uploaded_file, dict):
-            # Older Gradio: {"name": "/tmp/...", "data": b"...", ...}
+            # {"name": "/tmp/...", "data": b"...", ...}
             temppdf = uploaded_file.get("name")
         elif isinstance(uploaded_file, str):
             # Sometimes it's already a path string
@@ -135,7 +135,7 @@ def setup_rag_pipeline(api_key, uploaded_files, session_id):
 
     return conversational_rag_chain, f"✅ RAG pipeline is ready for session `{session_id}`. Ask your questions below!"
 
-# ANSWER QUESTIONS FUNCTION (USED BY GRADIO)
+# ANSWER QUESTIONS FUNCTION
 def answer_question(user_input, session_id, chain, chat_history_ui):
     """
     Uses the existing conversational_rag_chain to answer questions.
